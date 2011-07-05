@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="MacRoman" standalone="no"?>
+<jardesc>
+    <jar path="/Users/nherve/Travail/Export ICY plug/nherve_matrix.jar"/>
+    <options buildIfNeeded="true" compress="false" descriptionLocation="/NHerveMatrix/NHerveMatrix.jardesc" exportErrors="false" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" manifestLocation="/NHerveMatrix/Manifest.MF" manifestVersion="1.0" reuseManifest="false" saveManifest="true" usesManifest="true">
+        <sealing sealJar="true">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <javaElement handleIdentifier="=NHerveMatrix/src"/>
+        <file path="/NHerveMatrix/COPYING"/>
+    </selectedElements>
+</jardesc>
