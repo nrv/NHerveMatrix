@@ -8,6 +8,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.Vector;
 
 import plugins.nherve.matrix.util.Maths;
 
@@ -68,6 +69,8 @@ public class Matrix implements Cloneable, java.io.Serializable {
 	/*
 	 * ------------------------ Class variables ------------------------
 	 */
+
+	private static final long serialVersionUID = 3931280766651959467L;
 
 	public Matrix() {
 		super();
@@ -1226,7 +1229,7 @@ public class Matrix implements Cloneable, java.io.Serializable {
 		tokenizer.wordChars(0, 255);
 		tokenizer.whitespaceChars(0, ' ');
 		tokenizer.eolIsSignificant(true);
-		java.util.Vector v = new java.util.Vector();
+		Vector<Double> v1 = new Vector<Double>();
 
 		// Ignore initial empty lines
 		while (tokenizer.nextToken() == StreamTokenizer.TT_EOL)
@@ -1234,16 +1237,17 @@ public class Matrix implements Cloneable, java.io.Serializable {
 		if (tokenizer.ttype == StreamTokenizer.TT_EOF)
 			throw new java.io.IOException("Unexpected EOF on matrix read.");
 		do {
-			v.addElement(Double.valueOf(tokenizer.sval)); // Read & store 1st
+			v1.addElement(Double.valueOf(tokenizer.sval)); // Read & store 1st
 															// row.
 		} while (tokenizer.nextToken() == StreamTokenizer.TT_WORD);
 
-		int n = v.size(); // Now we've got the number of columns!
+		int n = v1.size(); // Now we've got the number of columns!
 		double row[] = new double[n];
 		for (int j = 0; j < n; j++)
 			// extract the elements of the 1st row.
-			row[j] = ((Double) v.elementAt(j)).doubleValue();
-		v.removeAllElements();
+			row[j] = ((Double) v1.elementAt(j)).doubleValue();
+		
+		Vector<double[]> v = new Vector<double[]>();
 		v.addElement(row); // Start storing rows instead of columns.
 		while (tokenizer.nextToken() == StreamTokenizer.TT_WORD) {
 			// While non-empty lines

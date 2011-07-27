@@ -17,7 +17,9 @@ public class CholeskyDecomposition implements java.io.Serializable {
    Class variables
  * ------------------------ */
 
-   /** Array for internal storage of decomposition.
+	private static final long serialVersionUID = 4992469433140406640L;
+
+/** Array for internal storage of decomposition.
    @serial internal array storage.
    */
    private double[][] L;
